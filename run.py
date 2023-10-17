@@ -60,6 +60,15 @@ def update_sales_worksheet(data):
     sales_worksheet.append_row(data)
     print("Sales worksheet updated.\n")
 
+def update_surplus_worksheet(data):
+        """
+        Update surplus worksheet!
+        """
+        print("Updating surplus worksheet.\n")
+        surplus_worksheet = SHEET.worksheet("surplus")
+        surplus_worksheet.append_row(data)
+        print("Surplus worksheet updated.\n")
+
 def calculate_surplus_data(sales_row):
     """
     Surplus wraps not sold for the day
@@ -77,7 +86,6 @@ def calculate_surplus_data(sales_row):
 
     return surplus_data
 
-
 def main():
     """
     Run all programs
@@ -86,7 +94,7 @@ def main():
     sales_data = [int(num) for num in data]
     update_sales_worksheet(sales_data)
     new_surplus_data = calculate_surplus_data(sales_data)
-    print(new_surplus_data)
+    update_surplus_worksheet(new_surplus_data)
 
 print("Welcome to Love Wraps Data Automation")
 main()
